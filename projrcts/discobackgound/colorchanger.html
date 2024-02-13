@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Disco background</title>
+
+    <style>
+      div {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      button {
+        height: 30px;
+        width: 100px;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <button id="start">START</button>
+      <button id="stp">STOP</button>
+    </div>
+  </body>
+  <script>
+    const random_color = function () {
+      const hex = "0123456789ABCDEF";
+      let color = "#";
+      for (let i = 0; i < 6; i++) {
+        let random = Math.floor(Math.random() * 16);
+        color += hex[random];
+      }
+
+      // console.log(color)
+      return color;
+    };
+    let setColor;
+
+    const startChange = function () {
+      if (!setColor) {
+        setColor = setInterval(changeBgColor, 200);
+      }
+      function changeBgColor() {
+        document.body.style.backgroundColor = random_color();
+      }
+      //   start.innerHTML = "STOP";
+      //   start.setAttribute("id", "stop");
+    };
+    const stopChange = function () {
+      clearInterval(setColor);
+      //   stp.innerHTML = "START";
+      //   stp.setAttribute("id", "start");
+      setColor = null;
+    };
+
+    const start = document.getElementById("start");
+    start.addEventListener("click", startChange);
+
+    const stp = document.getElementById("stp");
+    stp.addEventListener("click", stopChange);
+
+    // const stp = document.getElementById("stop");
+    // stp.addEventListener("click", stopChange);
+  </script>
+</html>

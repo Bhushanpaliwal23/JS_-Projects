@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Events</title>
+
+    <style>
+      img {
+        height: 100px;
+        width: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <div>
+        <ul id="images">
+          <li>
+            <img
+              src="../pexels-serkan-bayraktar-8351453.jpg"
+              id="one"
+              alt="Home"
+            />
+          </li>
+          <li>
+            <img
+              src="../pexels-serkan-bayraktar-8351453.jpg"
+              id="two"
+              alt="Home"
+            />
+          </li>
+          <li>
+            <img
+              src="../pexels-serkan-bayraktar-8351453.jpg"
+              id="three"
+              alt="Home"
+            />
+          </li>
+          <li>
+            <img
+              src="../pexels-serkan-bayraktar-8351453.jpg"
+              id="four"
+              alt="Home"
+            />
+          </li>
+          <li>
+            <img
+              src="../pexels-serkan-bayraktar-8351453.jpg"
+              id="five"
+              alt="Home"
+            />
+          </li>
+          <li><a href="https://www.google.com" id="link">Google</a></li>
+        </ul>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    // document.getElementById('one').onclick = function () {
+    //     alert('one')
+    // }
+
+    // document.getElementById('one').addEventListener('click', function (e) {
+    //     alert('one clicked by addEventListner')
+    //     console.log(e)
+    // })
+
+    // target, timestamp, defaultPrevented
+    // target, toElement, srcElement, currentTarget
+    // altkey, ctrlkey, shiftkey, keycode
+
+    // document.getElementById('one').addEventListener('click', function (e) {
+    //     alert('one clicked')
+    //     e.stopPropagation()
+    // }, false)
+
+    // document.getElementById('images').addEventListener('click', function (e) {
+    //     alert('images is is clicked')
+
+    // }, false)
+
+    // document.getElementById('link').addEventListener('click', function(e){
+    //     console.log('google clicked')
+    //     e.preventDefault()
+    // })
+
+    document.querySelector("#images").addEventListener("click", function (e) {
+      console.log(e.target.parentNode);
+
+      if (e.target.tagName === "IMG") {
+        let removeIt = e.target.parentNode;
+        removeIt.remove();
+      }
+
+    //   we are going one more level above to access li > ul => li 
+      // removeIt.parentNode.removeChild(removeIt)
+    });
+  </script>
+</html>

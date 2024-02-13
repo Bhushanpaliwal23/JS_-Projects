@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>setTimeout / setInterval</title>
+  </head>
+  <body>
+    <div>
+      <h1>Chai Aur Code</h1>
+      <button id="start">start</button>
+      <button id="stop">stop</button>
+    </div>
+  </body>
+
+  <script>
+    // setTimeout(() => {
+    //     const text = document.querySelector('h1')
+    //     text.innerHTML = 'Chai Khatam';
+    // }, 1000);
+
+    // heading change after 2 secs
+
+    const sayHello = function () {
+      const text = document.querySelector("h1");
+      text.innerHTML = "We are ready to go";
+    };
+
+    const interval = function () {
+      console.log("dike", Date.now());
+    };
+    
+    let set_timeout;
+    let set_interval;
+
+    document.querySelector("#start").addEventListener("click", function (e) {
+      set_timeout = setTimeout(sayHello, 1000);
+      set_interval = setInterval(interval, 1000);
+      console.log("started");
+    });
+
+    document.querySelector("#stop").addEventListener("click", function (e) {
+        
+      clearTimeout(set_timeout);
+      clearInterval(set_interval);
+      console.log("stopped");
+    });
+  </script>
+</html>

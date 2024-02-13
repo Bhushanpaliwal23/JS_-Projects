@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Color Change</title>
+
+    <style>
+      #canvas .button {
+        border: 2px solid black;
+        height: 100px;
+        width: 100px;
+      }
+
+      #red {
+        background-color: red;
+      }
+      #blue {
+        background-color: blue;
+      }
+      #green {
+        background-color: green;
+      }
+      #yellow {
+        background-color: yellow;
+      }
+    </style>
+
+   
+  </head>
+  <body>
+    <div id="canvas">
+      <h2>Click to change colors</h2>
+      <div class="button" id="red"></div>
+      <div class="button" id="blue"></div>
+      <div class="button" id="green"></div>
+      <div class="button" id="yellow"></div>
+    </div>
+  </body>
+
+  <script>
+    const buttons = document.querySelectorAll(".button");
+    const body = document.querySelector("body");
+
+    buttons.forEach((button) => {
+      console.log(button);
+      button.addEventListener("click", function (e) {
+        console.log(e);
+        console.log(e.target);
+        if (e.target.id === "red") {
+          body.style.backgroundColor = e.target.id;
+        }
+        if (e.target.id === "green") {
+          body.style.backgroundColor = e.target.id;
+        }
+        if (e.target.id === "blue") {
+          body.style.backgroundColor = e.target.id;
+        }
+        if (e.target.id === "yellow") {
+          body.style.backgroundColor = e.target.id;
+        }
+      });
+    });
+  </script>
+
+</html>
